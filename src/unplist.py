@@ -93,6 +93,7 @@ def transform_folder(source, dest):
     transform(source, dest)
 
 
+# 递归遍历，解压 plist 到 name.plist 文件夹，且 copy 所有 png 文件
 def transform(source, dest):
     clear_file = []
     for name in os.listdir(source):
@@ -131,6 +132,6 @@ def transform_one(root):
 
 
 if __name__ == '__main__':
-    source = "F:/svn/ming/client/release/Ming_3_qucik_wcjq/ClientProject/res/Image"
-    dest   = "F:/svn/h5gd/props/Ming_3_qucik_wcjq"
+    source = "F:/from"
+    dest   = "F:/to"
     transform_folder(source, dest)
