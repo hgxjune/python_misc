@@ -3,6 +3,7 @@
 import plistlib
 import os
 import sys
+import shutil
 from PIL import Image
 
 # PIL 安装： pip install pillow
@@ -80,8 +81,44 @@ def gen_image(file_name, export_path):
         export_image(img, os.path.join(export_path, key), item)
 
 
+
 # 遍历目录
-def transform_folder(root):
+def transform_folder(source, dest):
+    if not os.path.exists(source):
+        print('源目录不存在: %s' % source)
+        return
+    if not os.path.exists(dest):
+        print('目的目录不存在: %s' % root)
+        pass
+    transform(source, dest)
+
+
+def transform(source, dest):
+    clear_file = []
+    for name in os.listdir(source):
+        path_from = source + "/" + name
+        path_dest = dest + "/" + name
+
+        if os.path.isdir(path_from):
+            if not os.path.exists(path_dest):
+                os.mkdir(path_dest)
+            transform(path_from, path_dest)
+        elif name.endswith('.plist'):
+            gen_image(path_from.split(".")[0], path_dest)
+            clear_file.append(path_dest.split(".")[0] + ".png")
+        elif name.endswith('.png'):
+            shutil.copy(path_from, path_dest)
+
+    for f in clear_file:
+        if os.path.exists(f):
+            print('删除文件：%s' % f)
+            os.remove(f)
+
+    pass
+
+
+# 只遍历当前目录，直接在当前目录生成子目录
+def transform_one(root):
     if not os.path.exists(root):
         print('目录不存在: %s' % root)
         return
@@ -92,6 +129,8 @@ def transform_folder(root):
                 gen_image(path, path)
 
 
+
 if __name__ == '__main__':
-    transform_folder("F:/proj_t1/static_res/Image/Animation")
-    transform_folder("F:/proj_t1/static_res/Image/Effects")
+    source = "F:/svn/ming/client/release/Ming_3_qucik_wcjq/ClientProject/res/Image"
+    dest   = "F:/svn/h5gd/props/Ming_3_qucik_wcjq"
+    transform_folder(source, dest)
