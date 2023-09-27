@@ -108,6 +108,16 @@ def main():
 
 
 ################################################################################
+if __name__ == '__main__':
+    main()
+    # test_create()
+    # test_distribute()
+
+
+
+
+
+
 def test_distribute():
     seed1 = "1234567890"
     seed2 = "abcdefghijklmnopqrstuvwxyz"
@@ -140,10 +150,4 @@ def test_create():
     for x in range(0,100):
         passworld = getPassword( seedList[:] )
         print(str(x+1) + ": " + getPassword( seedList[:] ))
-
-if __name__ == '__main__':
-    main()
-    # test_create()
-    # test_distribute()
-
 

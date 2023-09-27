@@ -14,7 +14,7 @@ def pack_log(info):
 
 def write(info):
     log = pack_log(info)
-    file = os.path.dirname(os.path.abspath(__file__)) + r"/../log/info.log"
+    file = os.path.dirname(os.path.abspath(__file__)) + r"/../_temp/info.log"
     f = open(file, "a", encoding='utf-8')
     f.write(log)
     f.close()
