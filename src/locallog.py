@@ -12,14 +12,23 @@ def pack_log(info):
     log = log_time + '    ' + log_file + '    ' + info + '\n'
     return log
 
-def write(info):
-    log = pack_log(info)
-    file = os.path.dirname(os.path.abspath(__file__)) + r"/../_temp/info.log"
-    f = open(file, "a", encoding='utf-8')
-    f.write(log)
-    f.close()
 
+def write(info):
+    try:
+        
+        path = os.path.dirname(os.path.abspath(__file__)) + r"/../_temp"
+        if not os.path.exists(path):
+            os.makedirs(path)
+        file = path + r"/info.log"
+        with open(file, "a", encoding='utf-8') as f:
+            log = pack_log(info)
+            f.write(log)
+            f.close()
+
+    except Exception as e:
+        pass
     pass
+
 
 # ---------------------------------------------------------------------------- #
 if __name__ == '__main__':
