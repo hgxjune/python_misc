@@ -2,7 +2,7 @@
 一些常用的 python 脚本，部分收录于网络
 
 # 简介
-| code | 说明 |
+| code | 简介 |
 | - | - |
 | combine_file.py | 文件合并 |
 | create_rsa.py | 创建 rsa 对文件在 ../_temp/ |
