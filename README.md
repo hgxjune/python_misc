@@ -20,7 +20,7 @@
 | websocketcli.py | 简单 websocket 客户端 |
 
 # 说明
-- 大部分功能配合 listary 会更好用，例如：文件合并，新建命令，关键字`combine`，路径`python`，参数`F:\github\python_misc\src\combine_file.py {current_folder} {query}`，即可在目录下直接调用 listary 命令 `combine temp.txt`，可以直接合并所有 txt 文件到 temp.txt
+- 大部分功能配合 listary 会更好用，例如：文件合并，新建命令，关键字`combine`，路径`python`，参数`F:\github\python_misc\src\combine_file.py {current_folder} {query}`，即可在目录下调用 listary 命令 `combine temp.txt`，可以合并所有 txt 文件到 temp.txt
 - [OpenHardwareMonitor](https://openhardwaremonitor.org/) 需下载到 `./_3rd` 目录下
 
 
