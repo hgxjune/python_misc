@@ -13,6 +13,27 @@ import sys
 import time
 
 
+def template_hrl(f, path):
+    name  = os.path.splitext(os.path.basename(path))[0]
+    macro = name.upper() + "_HRL"
+    f.write("%%------------------------------------------------------------------------------\n")
+    f.write("%% @doc %s macro\n" % (name))
+    f.write("%% @author %s %s\n" % ('hgx', '<hgx@live.cn>'))
+    f.write("%% @copyright %s hgx, All rights reserved.\n" % time.strftime('%Y', time.localtime()))
+    f.write("%% @since %s \n" % time.strftime('%Y-%m-%d', time.localtime()))
+    f.write("%%------------------------------------------------------------------------------\n")
+    f.write("-ifndef(%s).\n" % (macro))
+    f.write("-define(%s,true).\n" % (macro))
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("-endif. %% %s\n" % (macro))
+    print('-- create erlang file completed: ', path)
+    pass
+
 def template_erl(f, path):
     name = os.path.splitext(os.path.basename(path))[0]
     f.write("%%------------------------------------------------------------------------------\n")
@@ -95,7 +116,7 @@ def create_file():
     except ValueError as e:
         print(e)
     except NameError as e:
-        print('Only create .py .erl .sh files.')
+        print('Only create .hrl .erl .py .sh files.')
     except Exception as e:
         print(type(e))
         print(e)
