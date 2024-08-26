@@ -93,6 +93,29 @@ def template_py(f, path):
     print('-- create python file completed: ', path)
     pass
 
+def template_bat(f, path):
+    name = os.path.splitext(os.path.basename(path))[0]
+    f.write("@rem ---------------------------------------------------------------------------\n")
+    f.write("@rem  doc %s \n" % (name))
+    f.write("@rem  author %s %s\n" % ('hgx', '<hgx@live.cn>'))
+    f.write("@rem  copyright %s hgx, All rights reserved.\n" % time.strftime('%Y', time.localtime()))
+    f.write("@rem  since %s \n" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+    f.write("@rem ---------------------------------------------------------------------------\n")
+    f.write("\n")
+    f.write("@echo off\n")
+    f.write("pushd\n")
+    f.write("cd %~dp0")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("PAUSE\n")
+    f.write("popd\n")
+    f.write("@echo on\n")
+    print('-- create bat file completed: ', path)
+    pass
+
+
 # ------------------------------------------------------------------------------
 def write(path, func):
     if os.path.exists(path):
@@ -116,7 +139,7 @@ def create_file():
     except ValueError as e:
         print(e)
     except NameError as e:
-        print('Only create .hrl .erl .py .sh files.')
+        print('Only create .bat .hrl .erl .py .sh files.')
     except Exception as e:
         print(type(e))
         print(e)
