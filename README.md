@@ -1,5 +1,5 @@
 # python_misc
-一些常用的 python 脚本，部分收录于网络
+一些常用的 python 脚本，部分收录于网络，使用时需要注意依赖
 
 # 简介
 | code | 简介 |
@@ -18,9 +18,10 @@
 | unxxtea.py | xxtea 加密文件解密 |
 | uuid_dns.py | 默认 uuid1，带参数则为 uuid3 dns 类型 |
 | websocketcli.py | 简单 websocket 客户端 |
+| local_download.py | 在局域网内使用，拖入文件既可生成下载二维码 |
 
 # 说明
 - 大部分功能配合 listary 会更好用，例如：文件合并，新建命令，关键字`combine`，路径`python`，参数`F:\github\python_misc\src\combine_file.py {current_folder} {query}`，即可在目录下调用 listary 命令 `combine temp.txt`，可以合并所有 txt 文件到 temp.txt
 - [OpenHardwareMonitor](https://openhardwaremonitor.org/) 需下载到 `./_3rd` 目录下
-
+- 在`windows`下使用`Pythonw`运行脚本，不启动`shell`
 

@@ -115,6 +115,23 @@ def template_bat(f, path):
     print('-- create bat file completed: ', path)
     pass
 
+def template_swift(f, path):
+    name = os.path.splitext(os.path.basename(path))[0]
+    f.write("///-----------------------------------------------------------------------------\n")
+    f.write("// @doc %s \n" % (name))
+    f.write("// @author %s %s\n" % ('hgx', '<hgx@live.cn>'))
+    f.write("// @copyright %s hgx, All rights reserved.\n" % time.strftime('%Y', time.localtime()))
+    f.write("// @since %s \n" % time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()))
+    f.write("///-----------------------------------------------------------------------------\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    f.write("\n")
+    print('-- create swift file completed: ', path)
+    pass
+
 
 # ------------------------------------------------------------------------------
 def write(path, func):
@@ -139,7 +156,7 @@ def create_file():
     except ValueError as e:
         print(e)
     except NameError as e:
-        print('Only create .bat .hrl .erl .py .sh files.')
+        print('Only create .bat .hrl .erl .py .sh .swift files.')
     except Exception as e:
         print(type(e))
         print(e)
