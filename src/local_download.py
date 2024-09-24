@@ -23,10 +23,7 @@ class FileDownloadHandler(http.server.BaseHTTPRequestHandler):
         super().__init__(request, client_addr, server)
 
     def do_GET(self):
-        # 获取请求的文件路径
         file_path = self.base_path
-
-        # 检查文件是否存在
         if not os.path.isfile(file_path):
             self.send_error(404, "文件不存在")
             return
@@ -40,6 +37,7 @@ class FileDownloadHandler(http.server.BaseHTTPRequestHandler):
         # 发送文件内容
         with open(file_path, "rb") as file:
             self.wfile.write(file.read())
+
 
 def run_server(port=8080, base_path=''):
     class CustomTCPServer(socketserver.TCPServer):
@@ -97,7 +95,6 @@ class DownForm(wx.Frame):
         self.sizer.Add(self.label, 1, wx.ALIGN_CENTER_HORIZONTAL | wx.ALIGN_CENTER_VERTICAL)
         self.panel.SetSizer(self.sizer)
         self.panel.SetDropTarget(FileDropTarget(self))
-        # wx.CallAfter(self.Bind, wx.EVT_KEY_DOWN, self.OnKeyDown)
 
     def createQr(self, path):
         qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=2)
