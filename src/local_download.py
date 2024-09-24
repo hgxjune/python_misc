@@ -89,7 +89,6 @@ def getPort():
 class DownForm(wx.Frame):
     def __init__(self, parent=None, title=None, size=(300, 300)):
         wx.Frame.__init__(self, parent=parent, title=title, size=size)
-        # self.Bind(wx.EVT_KEY_DOWN, self.OnKeyDown)
         # 标签居中
         self.panel = wx.Panel(self)
         self.label = wx.StaticText(self.panel, label='拖拽文件到此处', style = wx.ALIGN_CENTER)
@@ -123,13 +122,6 @@ class DownForm(wx.Frame):
         self.sizer.Clear()
         self.sizer.Add(image, 1, wx.ALIGN_CENTER_HORIZONTAL | wx.ALIGN_CENTER_VERTICAL)
 
-    def OnKeyDown(self, event):
-        keycode = event.GetKeyCode()
-        print(keycode)
-        if keycode == wx.WXK_ESCAPE:
-            self.Close()
-        else:
-            event.Skip()
 
 
 class FileDropTarget(wx.FileDropTarget):
